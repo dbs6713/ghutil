@@ -1,0 +1,44 @@
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace  = true
+charset = utf-8charset = utf-8
+end_of_line = lf
+indent_style = space
+max_line_length = 80
+
+[*.{c,h,cpp,hpp,js,json}]
+indent_size = 2
+
+[*.{py,php,sh,coffee,jade,styl}]
+indent_style = space
+indent_size = 4
+
+[*.go]
+indent_style = tab
+indent_size = 8
+
+[*.{yaml,yml}]
+indent_size = space
+indent_size = 2
+
+[*.md]
+indent_style = space
+trim_trailing_whitespace = false
+
+[{Makefile, makefile, GNUmakefile}]
+indent_style = tab
+indent_size = 4
+
+[lib/**.js]
+indent_style = space
+indent_size = 2
+
+[*.markdown]
+indent_style = space
+trim_trailing_whitespace = false
