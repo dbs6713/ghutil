@@ -26,6 +26,7 @@ bld.cli: clean
 	cat ./bin/sha256sum.txt
 
 clean:
+	-go clean
 	-rm -r ./bin
 
 info:
