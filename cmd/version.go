@@ -25,6 +25,6 @@ var versionCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Printf("VERSION:\t %s\n", ver.Version)
 		fmt.Printf("BUILD TIME:\t %s\n", ver.Buildtime)
-		fmt.Printf("BUILD USER1:\t %s\n", ver.Builduser)
+		fmt.Printf("BUILD USER:\t %s\n", ver.Builduser)
 	},
 }

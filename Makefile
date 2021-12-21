@@ -15,16 +15,15 @@ bld:
 	go install $(ALL_PACKAGES)
 
 bld.cli: clean
-	@echo off
 	@echo Building $(VERSION)...
 	-mkdir -p ./bin
 	# GOOS=linux GOARCH=amd64 $(CC) build -a -o ./bld/$(APP_NAME).linux-amd64 -ldflags='-s -w -X github.com/$(REPO_OWNER)/$(APP_NAME)/ver.Version=$(VERSION) -X github.com/$(REPO_OWNER)/$(APP_NAME)/ver.Buildtime=$(BUILD_TIME)' ./
-	GOOS=darwin GOARCH=amd64 $(CC) build -a -o ./bld/$(APP_NAME).darwin-amd64 -ldflags='-s -w -X github.com/$(REPO_OWNER)/$(APP_NAME)/ver.Version=$(VERSION) -X github.com/$(REPO_OWNER)/$(APP_NAME)/ver.Buildtime=$(BUILD_TIME) -X github.com/$(REPO_OWNER)/$(APP_NAME)/ver.Builduser=$(REPO_OWNER)' ./
+	GOOS=darwin GOARCH=amd64 $(CC) build -a -o ./bin/$(APP_NAME).darwin-amd64 -ldflags='-s -w -X github.com/$(REPO_OWNER)/$(APP_NAME)/ver.Version=$(VERSION) -X github.com/$(REPO_OWNER)/$(APP_NAME)/ver.Buildtime=$(BUILD_TIME) -X github.com/$(REPO_OWNER)/$(APP_NAME)/ver.Builduser=$(REPO_OWNER)' ./
 	# GOOS=windows GOARCH=amd64 $(CC) build -a -o ./bld/$(APP_NAME).windows-amd64.exe -ldflags='-s -w -X github.com/$(REPO_OWNER)/$(APP_NAME)/ver.Version=$(VERSION) -X github.com/$(REPO_OWNER)/$(APP_NAME)/ver.Buildtime=$(BUILD_TIME)' ./
 
-	cd ./bld && find . -name 'final*' | xargs -I{} tar czf {}.tar.gz {}
-	cd ./bld && shasum -a 256 * > sha256sum.txt
-	cat ./bld/sha256sum.txt
+	cd ./bin && find . -name 'final*' | xargs -I{} tar czf {}.tar.gz {}
+	cd ./bin && shasum -a 256 * > sha256sum.txt
+	cat ./bin/sha256sum.txt
 
 clean:
 	-rm -r ./bin

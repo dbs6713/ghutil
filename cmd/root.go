@@ -27,10 +27,9 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
 )
 
-var cfgFile string
+//var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
@@ -48,6 +47,7 @@ func Execute() {
 	}
 }
 
+/*
 func init() {
 	cobra.OnInitialize(initConfig)
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is ./ghutil.toml)")
@@ -70,3 +70,4 @@ func initConfig() {
 		panic(fmt.Errorf("fatal error config file: %s", err))
 	}
 }
+*/
